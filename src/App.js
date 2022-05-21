@@ -4,6 +4,8 @@ import Navbar from "./Shared/Navbar";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import AOS from "aos";
+import Login from "./Login/Login";
+import SingUp from "./Login/SignUp";
 
 function App() {
   useEffect(() => {
@@ -14,6 +16,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SingUp />} />
       </Routes>
     </div>
   );
