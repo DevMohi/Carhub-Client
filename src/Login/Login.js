@@ -4,21 +4,35 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { useForm } from "react-hook-form";
 import google from '../images/icons/google.png'
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from './Firebase.init';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const navigate = useNavigate()
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    if (user || gUser) {
+        navigate('/')
+    }
+    // variable declare kore niba error dekaite chaile 
+    let signInError;
+    if (error || gError) {
+        signInError = <p className='text-red-500 '><small>
+            {error?.message || gError?.message}</small></p>
+    }
 
     const onSubmit = data => {
         console.log(data)
+        signInWithEmailAndPassword(data.email, data.password);
         reset(data)
     }
-
-
-    // variable declare kore niba error dekaite chaile 
-    let signInError;
-
-
-
 
     return (
         <div className='flex justify-center mt-20'>
@@ -95,6 +109,7 @@ const Login = () => {
                         New to Car Hub ?<Link className='text-primary' to='/signup'>Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
+                        onClick={() => { signInWithGoogle() }}
                         className="btn btn-outline font-bold ">
                         <span className='mr-1'><img src={google} alt="" /></span>
                         Continue with Google
