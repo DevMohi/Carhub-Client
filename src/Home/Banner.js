@@ -1,5 +1,5 @@
 import React from 'react';
-import banner1 from '../images/banner-1.png'
+import banner1 from '../images/banner/banner-1.png'
 const Banner = () => {
     return (
         <div class="hero min-h-screen">

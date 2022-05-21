@@ -23,7 +23,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div class="navbar-center">
-                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a class="btn btn-ghost normal-case text-xl font-extrabold">Car<span className='text-secondary '>Hub</span></a>
             </div>
             <div class="navbar-end">
                 <button class="btn btn-ghost btn-circle">
