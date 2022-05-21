@@ -5,7 +5,7 @@ import BusinessSumary from './BusinessSumary';
 const Home = () => {
     return (
         <div>
-            {/* <Banner /> */}
+            <Banner />
             <BusinessSumary />
         </div>
     );
