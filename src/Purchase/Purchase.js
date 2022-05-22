@@ -26,16 +26,17 @@ const Purchase = () => {
     console.log(order)
 
 
-    let orderError = <p>Please enter element within range</p>
+    let orderError = <p className='text-xs text-red-500 '>Please enter element within range</p>
     const handleIncrease = () => {
-
+        setElementError('')
         const amount = parseInt(amountRef.current.value);
 
         if (amount >= minOrder && amount <= available) {
             setOrder(amount);
+            amountRef.current.value = '';
         }
         else {
-            console.log('errro')
+            setElementError(orderError)
         }
 
 
@@ -70,6 +71,7 @@ const Purchase = () => {
                         <p>Max Order:{available}</p>
                         <p>Ordered:{!order ? minOrder : order}</p>
                         {/* Modal  */}
+                        {elementError ? elementError : ''}
                         <label for="quantity" class="btn modal-button text-xs">Change Quantity</label>
 
                         <div>
@@ -79,15 +81,15 @@ const Purchase = () => {
                                     <label for="quantity" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
 
-
                                     <h3 className="font-bold text-lg text-secondary">Ordering for: {name}</h3>
                                     <div className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
 
                                         <input type="number" name='' ref={amountRef} placeholder="Enter Amount" className="input input-bordered w-full max-w-xs" />
-                                        <div className=''>
-                                            <button className='btn btn-xs mr-2 ' onClick={handleIncrease}>Increase</button>
+                                        <div className='modal-action'>
+                                            <label className='btn btn-xs' for='quantity' onClick={handleIncrease}>Submit</label>
 
                                         </div>
+
                                     </div>
 
 
