@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import google from '../images/icons/google.png'
 
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './Firebase.init';
+import Loading from '../Shared/Loading';
 
 const SingUp = () => {
-
+    const navigate = useNavigate()
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -26,10 +27,19 @@ const SingUp = () => {
         signInError = <p className='text-red-500 '><small>
             {error?.message || gError?.message || updateError?.message}</small></p>
     }
+    const location = useLocation();
 
-    if (user || gUser) {
-        console.log(user || gUser)
+
+
+    if (loading || gLoading) {
+        return <Loading></Loading>
     }
+
+    let from = location.state?.from?.pathname || "/";
+    if (user || gUser) {
+        navigate(from, { replace: true })
+    }
+    
     const onSubmit = async data => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);

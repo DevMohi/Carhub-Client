@@ -1,30 +1,30 @@
 [
     {   
         "_id":1,
-        "name":"GXR 40",
-        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
-        "desc":"Too powerful to handle",
-        "minOrder":"5",
+        "name":"Wheels",
+        "img":"https://i.ibb.co/rc768Lr/test.png",
+        "desc":"Make Your Tires look lavishing",
+        "minOrder":"3",
         "available":"500",
-        "price":"5000"
+        "price":"800"
     },
     {   
         "_id":2,
-        "name":"GXR 40",
-        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
-        "desc":"Too powerful to handle",
+        "name":"SpeedoMeter",
+        "img":"https://i.ibb.co/kq7GRR2/test2.png",
+        "desc":"Make Your Speedometer Interesting",
         "minOrder":"5",
-        "available":"500",
-        "price":"5000"
+        "available":"300",
+        "price":"500"
     },
     {   
         "_id":3,
-        "name":"GXR 40",
-        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
-        "desc":"Too powerful to handle",
-        "minOrder":"5",
-        "available":"500",
-        "price":"5000"
+        "name":"Steerings",
+        "img":"https://i.ibb.co/XDv4sGB/test3.png",
+        "desc":"Get the Grip to handle",
+        "minOrder":"2",
+        "available":"200",
+        "price":"200"
     }
 
 ]
