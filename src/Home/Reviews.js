@@ -22,6 +22,7 @@ const Reviews = () => {
                     ></Review>)
                 }
             </div>
+            <div className='flex justify-end'><button className='btn btn-link underline'>See All</button></div>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import sales from '../images/icons/sales.png'
 const BusinessSumary = () => {
     return (
         <div className=''>
-            <h1 className='text-center text-3xl text-secondary-focus mb-5 font-extrabold'>MILLIONS BUSINESS TRUST US</h1>
+            <h1 className='text-center text-3xl text-secondary-focus mb-5 font-extrabold '>MILLIONS BUSINESS TRUST US</h1>
             <div class="lg:stats shadow lg:flex ">
                 <div class="stat">
                     <div class="stat-figure text-secondary">

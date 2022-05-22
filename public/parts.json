@@ -1,0 +1,30 @@
+[
+    {   
+        "_id":1,
+        "name":"GXR 40",
+        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
+        "desc":"Too powerful to handle",
+        "minOrder":"5",
+        "available":"500",
+        "price":"5000"
+    },
+    {   
+        "_id":2,
+        "name":"GXR 40",
+        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
+        "desc":"Too powerful to handle",
+        "minOrder":"5",
+        "available":"500",
+        "price":"5000"
+    },
+    {   
+        "_id":3,
+        "name":"GXR 40",
+        "img":"https://i.ibb.co/t8bTfzL/bike2.png",
+        "desc":"Too powerful to handle",
+        "minOrder":"5",
+        "available":"500",
+        "price":"5000"
+    }
+
+]
