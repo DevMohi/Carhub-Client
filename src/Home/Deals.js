@@ -6,14 +6,17 @@ import deal from '../images/deals/deal.PNG'
 const Deals = () => {
     return (
         <div class="hero min-h-screen">
-            <div class="hero-content flex-col lg:flex-row">
-                <img src={deal} class=" rounded-lg shadow-2xl" />
-                <div className='ml-40'>
+            <div class="hero-content flex flex-col lg:flex-row  ">
+                <img src={deal} class="lg:w-1/3 w-3/4  rounded-lg shadow-2xl" />
+                <div className='lg:ml-40 ml-0 border '>
                     <h1 class="text-xs lg:text-left text-center text-5xl font-extrabold">Flash Deals!</h1>
                     <p class="py-6 text-3xl font-extrabold text-secondary-focus">HURRY UP AND GET 25% DISCOUNT</p>
-                    <button class="btn btn-secondary text-white mb-5">ADD TO CART</button>
 
-                    <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+                    <div className=' flex justify-center lg:justify-start items-center lg:items-start'>
+                        <button class="btn btn-secondary text-white mb-5  ">ADD TO CART</button>
+                    </div>
+
+                    <div class=" border  grid grid-flow-col lg:gap-5 gap-1 text-center auto-cols-max">
                         <div class="flex flex-col p-2 bg-neutral rounded-box text-white">
                             <span class="countdown font-mono text-5xl">
                                 <span></span>
