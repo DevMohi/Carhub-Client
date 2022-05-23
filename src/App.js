@@ -8,6 +8,12 @@ import Login from "./Login/Login";
 import SingUp from "./Login/SignUp";
 import Purchase from "./Purchase/Purchase";
 import RequireAuth from "./Login/RequireAuth";
+import Dashboard from "./Dashboard/Dashboard";
+import MyProfile from "./Dashboard/MyProfile";
+import MyOrders from "./Dashboard/MyOrders";
+import AddReview from "./Dashboard/AddReview";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   useEffect(() => {
@@ -21,7 +27,15 @@ function App() {
         <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SingUp />} />
+        <Route path="dashboard" element={<RequireAuth>
+          <Dashboard />
+        </RequireAuth>} >
+          <Route index element={<MyOrders />}></Route>
+          <Route path="profile" element={<MyProfile />}></Route>
+          <Route path='addReview' element={<AddReview />}></Route>
+        </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

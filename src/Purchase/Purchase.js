@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../Login/Firebase.init';
 
 const Purchase = () => {
@@ -39,26 +40,47 @@ const Purchase = () => {
             setElementError(orderError)
         }
 
+    }
+    const handleBooking = event => {
+        event.preventDefault();
+        const totalOrder = order.toString() || minOrder;
+        const totalPrice = (!order ? price * minOrder : order * price).toString()
+        const userName = user?.displayName
+        const email = user?.email
+        const phoneNumber = event.target.phone.value
+        const productName = name;
+        const address = event.target.phone.value;
 
-        // const updateQuantity = { quantity: increaseQuantity.toString() }
-        // const url = `http://localhost:5000/parts/${id}`;
-        // fetch(url, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(updateQuantity)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     })
+        const orderBooking = {
+            userName: userName,
+            email: email,
+            phoneNumber: phoneNumber,
+            address: address,
+            productName: productName,
+            totalOrder: totalOrder,
+            totalPrice: totalPrice
+        }
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderBooking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast('Thank you for Ordering')
+                }
+            })
     }
 
 
 
     return (
         <div className='max-w-7xl mx-auto px-8'>
+
             <h1 className='font-bold'>Order Page</h1>
             <h1 className='font-bold uppercase'>Welcome {user.displayName}</h1>
             <div className='mt-20 lg:flex lg:justify-evenly justify-center items-center'>
@@ -86,8 +108,7 @@ const Purchase = () => {
 
                                         <input type="number" name='' ref={amountRef} placeholder="Enter Amount" className="input input-bordered w-full max-w-xs" />
                                         <div className='modal-action'>
-                                            <label className='btn btn-xs' for='quantity' onClick={handleIncrease}>Submit</label>
-
+                                            <label className='btn btn-xl' for='quantity' onClick={handleIncrease}>Submit</label>
                                         </div>
 
                                     </div>
@@ -106,7 +127,7 @@ const Purchase = () => {
                     <div className="card lg:w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="text-center text-2xl font-bold">Fill these to Checkout</h2>
-                            <form>
+                            <form onSubmit={handleBooking}>
                                 <div className="form-control w-full max-w-xs mt-6">
                                     <input
                                         type="email"
@@ -116,11 +137,21 @@ const Purchase = () => {
                                     />
 
                                 </div>
+                                <div className="form-control w-full max-w-xs mt-6">
+                                    <input
+                                        type="text"
+                                        placeholder={user.displayName}
+                                        disabled
+                                        className="input input-bordered w-full max-w-xs font-black text-xs"
+                                    />
+
+                                </div>
 
                                 <div className="form-control w-full max-w-xs mt-6">
                                     <input
                                         type="text"
-                                        placeholder="Address"
+                                        placeholder='Address'
+                                        name='address'
                                         className="input input-bordered w-full max-w-xs"
 
                                     />
@@ -130,11 +161,22 @@ const Purchase = () => {
                                     <input
                                         type="text"
                                         placeholder="Phone Number"
+                                        name='phone'
                                         className="input input-bordered w-full max-w-xs"
                                     />
                                 </div>
+                                <div className="form-control w-full max-w-xs mt-6">
+                                    <label htmlFor="Order">Ordered</label>
+                                    <input
+                                        type="text"
+                                        placeholder={!order ? minOrder : order}
+                                        className="input input-bordered w-full max-w-xs"
+                                        disabled
+                                    />
+                                </div>
 
-                                <input type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order' />
+                                <input type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order'
+                                />
                             </form>
                         </div>
                     </div>
