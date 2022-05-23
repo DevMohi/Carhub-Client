@@ -3,18 +3,28 @@ import React from 'react';
 const Review = ({ review }) => {
     const { _id, name, img, rating, desc } = review;
     return (
-        <div class="card bg-base-100 shadow-xl text-center ">
-            <div class="avatar flex justify-center">
-                <div class="bg-neutral-focus text-neutral-content  rounded-full w-16 ">
-                    <img cal src={img} alt="" />
+
+
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+            <div className="card-body">
+                <p className=''>{desc}</p>
+                <div className="flex items-center">
+                    <div className="avatar">
+                        <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 mr-5">
+                            <img src={img} alt="noob" />
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className="text-xl">
+                            {name}
+                        </h4>
+                        <p>Rating: {rating}/5</p>
+                    </div>
                 </div>
             </div>
-            <div class="card-body">
-                <h2 class="font-black">{name}</h2>
-                <p>{desc}</p>
-                <p>{rating}</p>
-            </div>
         </div>
+
+
     );
 };
 

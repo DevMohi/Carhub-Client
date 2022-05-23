@@ -1,25 +1,22 @@
 [
     {
-        "_id": "624b68484322075f12b7caab",
         "name": "Leanne Figueroa",
         "img": "https://randomuser.me/api/portraits/men/75.jpg",
-        "rating": "⭐⭐⭐⭐⭐",
-        "desc": "If you are a fan of getting trained by the best this gym should be in your list as it is the best ."
+        "rating": "4.5",
+        "desc": "If you are a fan of getting the best car parts in the town then this should be in your list as it is the best ."
     },
     {
-        "_id": "624b6848ac9cfa0556e7c70b",
         "name": "Ronda Alford",
         "img": "https://randomuser.me/api/portraits/men/78.jpg",
-        "rating": "⭐⭐⭐⭐",
-        "desc": "I have joined several gyms before, but this gym helped me grow my confidence and my body too"
+        "rating": "4",
+        "desc": "They Ship within 2-3 days, and that makes our life as a customer easy"
 
     },
     {
-        "_id": "624b68487d9878c2c6d10cf2",
         "name": "Britt Witt",
         "img": "https://randomuser.me/api/portraits/men/88.jpg",
-        "rating": "⭐⭐⭐⭐",
-        "desc": "I would like to appreciate the coach for constanly avoiding my nagging and help me out regardless"
+        "rating": "5",
+        "desc": "I would like to appreciate them for bringing out the best parts in the town"
 
     }
 ]

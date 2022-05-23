@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import Review from './Review';
+import quote from '../images/icons/quote.svg'
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('review.json')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
     return (
-        <div>
-            <h1 className='text-center text-3xl font-extrabold text-secondary-focus mt-10'>REVIEWS</h1>
-            <p className='text-center mb-5 font-bold mt-2'>This is What Our Customer Says!! </p>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5  mt-10' data-aos='fade-right'
-                data-aos-duration="1000"
-                data-aos-delay="200">
+        <section className='my-28'>
+            <div className='flex justify-between'>
+                <div><h4 className="text-xl text-secondary font-bold">Reviews</h4>
+                    <h2 className="text-3xl">What our Customer Says</h2>
+                </div>
+                <div>
+                    <img src={quote} alt="" className='w-24 lg:w-48 ' />
+                </div>
+            </div>
+
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    reviews.map(review => <Review
-                        key={review._id}
+                    reviews.map(review => <Review key={review._id}
                         review={review}
                     ></Review>)
                 }
             </div>
-            <div className='flex justify-end'><button className='btn btn-link underline'>See All</button></div>
-        </div>
+        </section>
     );
 };
 
