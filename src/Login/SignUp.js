@@ -6,6 +6,7 @@ import google from '../images/icons/google.png'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './Firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../hooks/useToken';
 
 const SingUp = () => {
     const navigate = useNavigate()
@@ -21,6 +22,8 @@ const SingUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [token] = useToken(user || gUser)
+
     // variable declare kore niba error dekaite chaile 
     let signInError;
     if (error || gError || updateError) {
@@ -29,23 +32,22 @@ const SingUp = () => {
     }
     const location = useLocation();
 
-
-
     if (loading || gLoading) {
         return <Loading></Loading>
     }
 
     let from = location.state?.from?.pathname || "/";
-    if (user || gUser) {
+    if (token) {
         navigate(from, { replace: true })
     }
-    
+
     const onSubmit = async data => {
-        console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name })
         reset()
     };
+
+
     return (
         <div className='flex justify-center mt-20'>
             <div className="card w-96 bg-base-100 shadow-xl">

@@ -7,6 +7,7 @@ import google from '../images/icons/google.png'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from './Firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../hooks/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -21,10 +22,13 @@ const Login = () => {
 
     const location = useLocation();
 
+    const [token] = useToken(user || gUser)
+
     let from = location.state?.from?.pathname || "/";
-    if (user || gUser) {
+    if (token) {
         navigate(from, { replace: true })
     }
+
     // variable declare kore niba error dekaite chaile 
     let signInError;
     if (error || gError) {

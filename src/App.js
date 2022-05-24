@@ -14,6 +14,7 @@ import MyOrders from "./Dashboard/MyOrders";
 import AddReview from "./Dashboard/AddReview";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddAdmin from "./Dashboard/AddAdmin";
 
 function App() {
   useEffect(() => {
@@ -27,13 +28,16 @@ function App() {
         <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SingUp />} />
+
         <Route path="dashboard" element={<RequireAuth>
           <Dashboard />
         </RequireAuth>} >
           <Route index element={<MyOrders />}></Route>
           <Route path="profile" element={<MyProfile />}></Route>
           <Route path='addReview' element={<AddReview />}></Route>
+          <Route path='addadmin' element={<AddAdmin />}></Route>
         </Route>
+
       </Routes>
       <ToastContainer />
     </div>
