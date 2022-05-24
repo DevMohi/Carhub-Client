@@ -27,6 +27,9 @@ const Reviews = () => {
                     ></Review>)
                 }
             </div>
+            <div style={{ cursor: 'pointer' }} className='mt-3 flex justify-end'>
+                <btn className=' btn-link'>See All</btn>
+            </div>
         </section>
     );
 };

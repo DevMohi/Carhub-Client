@@ -175,7 +175,7 @@ const Purchase = () => {
                                     />
                                 </div>
 
-                                <input type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order'
+                                <input disabled={elementError ? true : false} type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order'
                                 />
                             </form>
                         </div>
