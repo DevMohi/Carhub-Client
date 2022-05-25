@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Login/Firebase.init';
+import DeleteOrdersModal from './DeleteOrdersModal';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const [myOrders, setMyOrders] = useState([])
     const navigate = useNavigate()
+    const [orderId, setOrderId] = useState(null)
 
     useEffect(() => {
         if (user) {
@@ -48,10 +50,11 @@ const MyOrders = () => {
     }
 
     return (
-        < div >
+        < div className='' >
             <h1>My Orders: {myOrders.length}</h1>
             <div class="overflow-x-auto">
-                <table class="table w-full">
+                <table class="table lg:w-full
+                ">
 
                     <thead>
                         <tr>
@@ -74,18 +77,12 @@ const MyOrders = () => {
                             <td>
                                 {(orders.totalPrice && !orders.paid) && <>
                                     <Link to={`/dashboard/payment/${orders._id}`}><button className='btn btn-xs btn-success mr-1'>Pay</button></Link>
-                                    <label for="deleteOrder" className='btn btn-xs btn-error'>Delete</label>
-                                    <input type="checkbox" id="deleteOrder" class="modal-toggle" />
-                                    <div class="modal">
-                                        <div class="modal-box relative">
-                                            <label for="deleteOrder" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                            <h1>Are you sure?</h1>
-                                            <div className='modal-action'>
-                                                <label className='btn btn-error' for='deleteOrder' onClick={() => { handleDelete(orders._id) }}>Yes</label>
-                                                <label className='btn btn-success' for='deleteOrder' >No</label>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+                                    <label for="deleteOrder"
+                                        onClick={() => setOrderId(orders._id)}
+                                        className='btn btn-xs btn-error'>Delete</label>
+
                                 </>}
 
 
@@ -99,6 +96,12 @@ const MyOrders = () => {
                             </td>
                         </tr>)}
 
+
+                        {
+                            orderId && <DeleteOrdersModal orderId={orderId}
+                                handleDelete={handleDelete}
+                            ></DeleteOrdersModal>
+                        }
                     </tbody>
                 </table>
             </div>

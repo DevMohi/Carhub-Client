@@ -19,6 +19,7 @@ import RequireAdmin from "./Login/RequireAdmin";
 import AddProduct from "./Dashboard/AddProduct";
 import ManageProduct from "./Dashboard/ManageProduct";
 import Payment from "./Dashboard/Payment";
+import NotFound from "./Shared/NotFound";
 
 function App() {
   useEffect(() => {
@@ -44,8 +45,9 @@ function App() {
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
-
       </Routes>
+
+
       <ToastContainer />
     </div>
   );
