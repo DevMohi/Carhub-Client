@@ -15,6 +15,7 @@ import AddReview from "./Dashboard/AddReview";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddAdmin from "./Dashboard/AddAdmin";
+import RequireAdmin from "./Login/RequireAdmin";
 
 function App() {
   useEffect(() => {
@@ -35,7 +36,7 @@ function App() {
           <Route index element={<MyOrders />}></Route>
           <Route path="profile" element={<MyProfile />}></Route>
           <Route path='addReview' element={<AddReview />}></Route>
-          <Route path='addadmin' element={<AddAdmin />}></Route>
+          <Route path='addadmin' element={<RequireAdmin><AddAdmin /></RequireAdmin>}></Route>
         </Route>
 
       </Routes>
