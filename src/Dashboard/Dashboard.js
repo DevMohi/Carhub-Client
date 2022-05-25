@@ -7,7 +7,6 @@ import auth from '../Login/Firebase.init';
 const Dashboard = () => {
     const [user] = useAuthState(auth)
     const [admin] = useAdmin(user)
-    console.log(admin)
     return (
         <div class="drawer drawer-mobile">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
@@ -26,6 +25,7 @@ const Dashboard = () => {
                     {admin && <>
                         <li><Link to='/dashboard/addadmin'>Add Admin</Link></li>
                         <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+                        <li><Link to='/dashboard/manageProduct'>Manage Product</Link></li>
                     </>
                     }
 

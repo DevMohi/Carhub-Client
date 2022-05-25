@@ -17,6 +17,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddAdmin from "./Dashboard/AddAdmin";
 import RequireAdmin from "./Login/RequireAdmin";
 import AddProduct from "./Dashboard/AddProduct";
+import ManageProduct from "./Dashboard/ManageProduct";
+import Payment from "./Dashboard/Payment";
 
 function App() {
   useEffect(() => {
@@ -37,8 +39,10 @@ function App() {
           <Route index element={<MyOrders />}></Route>
           <Route path="profile" element={<MyProfile />}></Route>
           <Route path='addReview' element={<AddReview />}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>} />
           <Route path='addadmin' element={<RequireAdmin><AddAdmin /></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
 
       </Routes>
