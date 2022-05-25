@@ -68,7 +68,7 @@ const AddReview = () => {
                             />
 
                         </div>
-                        {/* email field  */}
+                        {/* review field  */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Review</span>
@@ -91,7 +91,7 @@ const AddReview = () => {
                                 }
                             </label>
                         </div>
-                        {/* password field  */}
+                        {/* rating field  */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Rating</span>
