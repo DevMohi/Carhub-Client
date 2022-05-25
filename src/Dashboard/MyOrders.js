@@ -53,9 +53,7 @@ const MyOrders = () => {
         < div className='' >
             <h1>My Orders: {myOrders.length}</h1>
             <div class="overflow-x-auto">
-                <table class="table lg:w-full
-                ">
-
+                <table class="table lg:w-full">
                     <thead>
                         <tr>
                             <th></th>
