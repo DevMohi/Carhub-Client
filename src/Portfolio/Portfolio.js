@@ -79,10 +79,10 @@ const Portfolio = () => {
                     <div class="card  bg-base-100 shadow-xl">
                         <figure><img src={project3} alt="CarHub" /></figure>
                         <div class="card-body">
-                            <h2 class="card-title">CarHub</h2>
+                            <h2 class="card-title">LLC Convention Center</h2>
                             <p>If you want to view the project just click on the live link</p>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-secondary text-white"><a href="https://gains-bd2ce.web.app/">Live Link</a></button>
+                                <button class="btn btn-secondary text-white"><a href="https://devmohi.github.io/Convention-Centre-Bootstrap/">Live Link</a></button>
                             </div>
                         </div>
                     </div>
