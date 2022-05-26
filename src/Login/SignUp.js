@@ -139,7 +139,7 @@ const SingUp = () => {
                         {
                             signInError
                         }
-                        <input type="submit" className='btn w-full max-w-xs' value='Sign Up' />
+                        <input type="submit" className='btn w-full max-w-xs btn-secondary' value='Sign Up' />
                     </form>
                     <p><small>
                         Already have an account?<Link className='text-primary' to='/login'>Login</Link></small></p>
