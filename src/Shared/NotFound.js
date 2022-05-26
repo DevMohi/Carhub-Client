@@ -14,7 +14,7 @@ const NotFound = () => {
             </div>
 
             <div className='mb-5 flex justify-center'>
-                <button onClick={handleHome} className='btn btn-secondary text-white  '><small>Go Home</small></button>
+                <button onClick={handleHome} className='lg:btn-lg btn btn-xs btn-secondary  text-white  '><small>Go Home</small></button>
             </div>
 
         </div>

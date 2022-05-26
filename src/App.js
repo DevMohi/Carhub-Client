@@ -20,6 +20,7 @@ import AddProduct from "./Dashboard/AddProduct";
 import ManageProduct from "./Dashboard/ManageProduct";
 import Payment from "./Dashboard/Payment";
 import NotFound from "./Shared/NotFound";
+import Blogs from "./Blogs/Blogs";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/purchase/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SingUp />} />
+        <Route path="/blogs" element={<Blogs />} />
 
         <Route path="dashboard" element={<RequireAuth>
           <Dashboard />
