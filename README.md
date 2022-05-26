@@ -18,7 +18,7 @@ Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app/) to
 - For the Users, it had purchase option , the user can update his profile
 - The Users can add reviews which will be displayed also in all reviews page
 - Users can pay , this is done through stripe js so basically its real time transaction id
-- The Admins will not have access too add reviews and buy products as it is the option for users only
+- The Admins will not have access to add reviews and buy products as it is the option for users only
 - The Users cant have admin acccess, only the edit profile option is available for both user and admin
 - Admin can delete product stock or add new stock, the admin can add new admins
 - The Admin can ship orders that are paid and delete orders that are unpaid.
@@ -41,3 +41,4 @@ Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app/) to
 - React
 - Node JS
 - Heroku
+- Stripe 
