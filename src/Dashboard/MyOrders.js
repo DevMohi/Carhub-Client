@@ -52,7 +52,7 @@ const MyOrders = () => {
     }
 
     return (
-        < div className='' >
+        < div className='mb-20' >
             <h1>My Orders: {myOrders.length}</h1>
 
             <Table className="table lg:w-full">

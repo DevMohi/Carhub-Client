@@ -18,7 +18,7 @@ const AddAdmin = () => {
     }
 
     return (
-        <div>
+        <div className='mb-20'>
             <h2 className='text-2xl'>All Users: {users?.length}</h2>
 
             <Table className="table w-full">

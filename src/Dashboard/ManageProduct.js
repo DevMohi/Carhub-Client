@@ -27,7 +27,7 @@ const ManageProduct = () => {
             })
     }
     return (
-        <div>
+        <div className='mb-20'>
             <h1>Manage Products : {products.length}</h1>
 
             <Table className="table w-full overflow-x-auto">

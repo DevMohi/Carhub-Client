@@ -41,7 +41,7 @@ const ManageAllOrders = () => {
     }
 
     return (
-        <div>
+        <div className='mb-20'>
             <h1>All orders : {allOrders.length}</h1>
             <div className='overflow-x-auto'>
 
