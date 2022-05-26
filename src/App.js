@@ -23,6 +23,8 @@ import NotFound from "./Shared/NotFound";
 import Blogs from "./Blogs/Blogs";
 import Portfolio from "./Portfolio/Portfolio";
 import ManageAllOrders from "./Dashboard/ManageAllOrders";
+import SeeReviews from "./SeeAll/SeeReviews";
+import SeeAllParts from "./SeeAll/SeeAllParts";
 
 function App() {
   useEffect(() => {
@@ -37,6 +39,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SingUp />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/seereviews" element={<SeeReviews />} />
+        <Route path="/seeparts" element={<SeeAllParts />} />
         <Route path="/portfolio" element={<Portfolio />} />
 
         <Route path="dashboard" element={<RequireAuth>

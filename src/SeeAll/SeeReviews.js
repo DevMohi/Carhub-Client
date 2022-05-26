@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Review from './Review';
+import Review from '../Home/Review';
+
 import quote from '../images/icons/quote.svg'
-import { Link } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 
-const Reviews = () => {
+const SeeReviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/review')
@@ -26,14 +26,12 @@ const Reviews = () => {
                 {
                     reviews.length === 0 ? <Loading /> : reviews.map(review => <Review key={review._id}
                         review={review}
-                    ></Review>).reverse().slice(0, 3)
+                    ></Review>).reverse()
                 }
             </div>
-            <div style={{ cursor: 'pointer' }} className='mt-3 flex justify-end'>
-                <Link to='/seereviews'><btn className=' btn-link'>See All</btn></Link>
-            </div>
+
         </section>
     );
 };
 
-export default Reviews;
+export default SeeReviews;

@@ -9,6 +9,7 @@ const Purchase = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [part, setPart] = useState({})
     const [user, loading, error] = useAuthState(auth);
+    const [inputDisable, setInputDisable] = useState(false)
 
 
     const { id } = useParams()
@@ -23,24 +24,27 @@ const Purchase = () => {
     const amountRef = useRef()
 
     const [order, setOrder] = useState('')
+
+
     const [elementError, setElementError] = useState("")
-    console.log(order)
-
-
     let orderError = <p className='text-xs text-red-500 '>Please enter element within range</p>
-    const handleIncrease = () => {
-        setElementError('')
-        const amount = parseInt(amountRef.current.value);
 
-        if (amount >= minOrder && amount <= available) {
-            setOrder(amount);
-            amountRef.current.value = '';
-        }
-        else {
-            setElementError(orderError)
-        }
 
-    }
+
+    // const handleIncrease = () => {
+    //     setElementError('')
+    //     const amount = parseInt(amountRef.current.value);
+
+    //     if (amount >= minOrder && amount <= available) {
+    //         setOrder(amount);
+    //         amountRef.current.value = '';
+    //     }
+    //     else {
+    //         setElementError(orderError)
+    //     }
+
+    // }
+
     const handleBooking = event => {
         event.preventDefault();
         const totalOrder = order.toString() || minOrder;
@@ -76,6 +80,20 @@ const Purchase = () => {
             })
     }
 
+    const handleChange = (event) => {
+        const value = parseInt(event.target.value)
+        console.log(value)
+
+        if ((value + 1) <= parseInt(minOrder) || (value - 1) >= parseInt(available) || isNaN(value)) {
+            setInputDisable(true)
+            setElementError(orderError)
+        }
+        else {
+            setInputDisable(false)
+            setElementError('')
+        }
+    }
+
 
 
     return (
@@ -92,38 +110,25 @@ const Purchase = () => {
                         <p>Minimum Order: {minOrder}</p>
                         <p>Max Order:{available}</p>
                         <p>Ordered:{!order ? minOrder : order}</p>
-                        {/* Modal  */}
-                        {elementError ? elementError : ''}
-                        <label for="quantity" class="btn modal-button text-xs md:w-1/2 ">Change Quantity</label>
 
-                        <div>
-                            <input type="checkbox" id="quantity" class="modal-toggle" />
-                            <div class="modal">
-                                <div class="modal-box relative">
-                                    <label for="quantity" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <label htmlFor="">Enter Quantity:</label>
+                        <input
+                            onChange={handleChange}
+                            defaultValue={minOrder}
+                            type="number" className='input input-bordered w-full max-w-xs font-black'
 
+                        />
+                        {
+                            elementError ? elementError : ''
+                        }
 
-                                    <h3 className="font-bold text-lg text-secondary">Ordering for: {name}</h3>
-                                    <div className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-
-                                        <input type="number" name='' ref={amountRef} placeholder="Enter Amount" className="input input-bordered w-full max-w-xs" />
-                                        <div className='modal-action'>
-                                            <label className='btn btn-xl' for='quantity' onClick={handleIncrease}>Submit</label>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
 
                         <figure className='md: w-1/2'><img src={img} alt={name} /></figure>
                     </div>
                 </div>
 
                 {/* Another Section  */}
-                <div className='mt-5 lg:mt-0 border  flex  justify-center'>
+                <div className='mt-5 lg:mt-0 flex  justify-center'>
                     <div className="card lg:w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="text-center text-2xl font-bold">Fill these to Checkout</h2>
@@ -175,8 +180,9 @@ const Purchase = () => {
                                     />
                                 </div>
 
-                                <input disabled={elementError ? true : false} type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order'
+                                <input disabled={inputDisable} type="submit" className='btn w-full max-w-xs mt-6 btn-outline btn-secondary' value='Confirm Order'
                                 />
+
                             </form>
                         </div>
                     </div>

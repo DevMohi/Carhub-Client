@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PartsCard from '../Home/PartsCard';
 import Loading from '../Shared/Loading';
-import PartsCard from './PartsCard';
 
-const Parts = () => {
+
+const SeeAllParts = () => {
     const [parts, setParts] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/parts')
@@ -12,7 +13,7 @@ const Parts = () => {
     }, [])
     return (
         <div>
-            <h1 className='text-5xl text-secondary-focus text-center my-10'>Best Selling Parts</h1>
+            <h1 className='text-5xl text-secondary-focus text-center my-10'>All Parts</h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5  mt-10 border mb-0 '>
                 {
                     parts.length === 0 ? <Loading /> : parts.map(part => <PartsCard
@@ -31,4 +32,4 @@ const Parts = () => {
     );
 };
 
-export default Parts;
+export default SeeAllParts;
