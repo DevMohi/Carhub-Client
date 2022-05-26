@@ -60,7 +60,7 @@ const Portfolio = () => {
                             <h2 class="card-title">StockZ</h2>
                             <p>If you want to view the project just click on the live link</p>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-secondary text-white"><a href="https://warehouse-project-f3584.web.app/">Live Link</a></button>
+                                <button class="btn btn-secondary text-white"><a href="https://warehouse-project-f3584.web.app/" target='_blank'>Live Link</a></button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ const Portfolio = () => {
                             <h2 class="card-title">GainZ</h2>
                             <p>If you want to view the project just click on the live link</p>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-secondary text-white"><a href="https://gains-bd2ce.web.app/">Live Link</a></button>
+                                <button class="btn btn-secondary text-white"><a href="https://gains-bd2ce.web.app/" target='_blank'>Live Link</a></button>
                             </div>
                         </div>
                     </div>
