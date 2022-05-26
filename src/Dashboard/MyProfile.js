@@ -7,7 +7,6 @@ import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    const navigate = useNavigate()
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const [profile, setProfile] = useState({})
@@ -47,7 +46,7 @@ const MyProfile = () => {
     };
 
     return (
-        <div className='flex lg:flex-row '>
+        <div className='flex justify-center '>
             <div>
                 <div className='flex justify-center mt-20 mr-2'>
                     <div className='card w-96 bg-base-100 shadow-xl'>
@@ -77,7 +76,7 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center mt-20'>
+            <div className='flex justify-center mt-10'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
