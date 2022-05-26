@@ -8,17 +8,21 @@ import Loading from '../Shared/Loading';
 const MyProfile = () => {
     const [user] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-
     const [profile, setProfile] = useState({})
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
         if (user) {
             fetch(`https://mighty-bayou-71597.herokuapp.com/profile/${user.email}`)
                 .then(res => res.json())
-                .then(data => setProfile(data))
+                .then(data => {
+                    setProfile(data)
+                    setLoading(false)
+                })
         }
-    }, [user, profile])
+
+    }, [user, profile , loading])
 
     const onSubmit = async data => {
 
@@ -38,15 +42,19 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-
-                }
+                setLoading(true)
+                // if (data.upsertedCount > 1) {
+                // }
+                // if (data.acknowledged) {
+                //     refetch()
+                // }
+                reset()
             })
 
     };
 
     return (
-        <div className='flex flex-col lg:flex-row justify-center '>
+        <div className='flex flex-col lg:flex-row justify-center mb-20'>
             <div>
                 <div className='flex justify-center mt-20 mr-2'>
                     <div className='card w-96 bg-base-100 shadow-xl'>
