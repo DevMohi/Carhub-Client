@@ -21,7 +21,7 @@ const AddReview = () => {
             img: imageURL,
             name: user?.displayName
         }
-        const res = await axios.post('http://localhost:5000/review', review);
+        const res = await axios.post('https://mighty-bayou-71597.herokuapp.com/review', review);
         console.log(res)
         if (res.status === 200) {
             console.log('hello')

@@ -7,14 +7,14 @@ const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([])
     const [manageId, setManageId] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:5000/allorder')
+        fetch('https://mighty-bayou-71597.herokuapp.com/allorder')
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, [allOrders])
 
     const handleShipped = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/allorder/${id}`, {
+        fetch(`https://mighty-bayou-71597.herokuapp.com/allorder/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ const ManageAllOrders = () => {
     const handleDelete = (id) => {
 
         console.log(id)
-        fetch(`http://localhost:5000/order-parts/${id}`, {
+        fetch(`https://mighty-bayou-71597.herokuapp.com/order-parts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

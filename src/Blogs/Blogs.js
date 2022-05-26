@@ -2,17 +2,21 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
+        <div className='mb-20'>
             <div class="card w-100 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h1 className='font-bold'>How will you improve the performance of a React Application?</h1>
-                    <h1>Ans: </h1>
+                    <h1>Ans: Keep component state local when it's needed. Memorize React components to avoid undesired re-renders. React code splitting with dynamic import (). Moreover, To get the most out of React rendering, ensure components only get the props they require. </h1>
                 </div>
             </div>
             <div class="card w-100 bg-base-100 shadow-xl mt-5">
                 <div class="card-body">
                     <h1 className='font-bold'>What are the different ways to manage a state in a React application?</h1>
-                    <h1>Ans: </h1>
+                    <h1>Ans: In a React application, there are four ways to maintain state. These are the following:
+                        Local (UI) state - The data we handle in one or more components is referred to as local state.
+                        Global (UI) state - Data that we handle across various components is referred to as global state.
+                        Data from an external server that must be merged with our UI state is called server state.
+                        URL state - Information found on our URLs, such as pathnames and query parameters.</h1>
                 </div>
             </div>
             <div class="card w-100 bg-base-100 shadow-xl mt-5">

@@ -14,7 +14,7 @@ const Purchase = () => {
 
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://mighty-bayou-71597.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => setPart(data))
     }, [id])
@@ -23,7 +23,7 @@ const Purchase = () => {
 
     const amountRef = useRef()
 
-    const [order, setOrder] = useState('')
+    const [order, setOrder] = useState(0)
 
 
     const [elementError, setElementError] = useState("")
@@ -64,7 +64,7 @@ const Purchase = () => {
             totalOrder: totalOrder,
             totalPrice: totalPrice
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://mighty-bayou-71597.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,6 +83,7 @@ const Purchase = () => {
     const handleChange = (event) => {
         const value = parseInt(event.target.value)
         console.log(value)
+        setOrder(value)
 
         if ((value + 1) <= parseInt(minOrder) || (value - 1) >= parseInt(available) || isNaN(value)) {
             setInputDisable(true)

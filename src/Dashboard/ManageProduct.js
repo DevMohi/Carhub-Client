@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([])
     const [manageId, setManageId] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://mighty-bayou-71597.herokuapp.com/parts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageProduct = () => {
     const handleDelete = (id) => {
 
         console.log(id)
-        fetch(`http://localhost:5000/delete-parts/${id}`, {
+        fetch(`https://mighty-bayou-71597.herokuapp.com/delete-parts/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

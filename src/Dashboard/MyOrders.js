@@ -15,7 +15,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/orders?email=${user.email}`, {
+            fetch(`https://mighty-bayou-71597.herokuapp.com/orders?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
 
         console.log(id)
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://mighty-bayou-71597.herokuapp.com/orders/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

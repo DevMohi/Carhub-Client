@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner1 from '../images/banner/banner-1.png'
 const Banner = () => {
     return (
@@ -17,11 +18,11 @@ const Banner = () => {
                         data-aos-delay="400"
                     >Wheels and Tires <br /> Collections</p>
                     <div className='md:flex justify-center lg:justify-start flex'>
-                        <button class="btn btn-accent text-white"
+                        <Link to='/seeparts'><button class="btn btn-accent text-white"
                             data-aos='fade-right'
                             data-aos-duration="800"
                             data-aos-delay="600"
-                        >Shop Now</button>
+                        >Shop Now</button></Link>
                     </div>
                 </div>
             </div>

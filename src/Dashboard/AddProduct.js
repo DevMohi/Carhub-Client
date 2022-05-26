@@ -23,7 +23,7 @@ const AddProduct = () => {
             img: imageURL,
 
         }
-        const res = await axios.post('http://localhost:5000/add-parts', parts);
+        const res = await axios.post('https://mighty-bayou-71597.herokuapp.com/add-parts', parts);
         console.log(res)
         if (res.status === 200) {
             console.log('hello')
@@ -53,7 +53,7 @@ const AddProduct = () => {
 
     return (
         <div className='flex  justify-center mt-5'>
-         <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Add Products</h2>
 

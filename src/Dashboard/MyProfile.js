@@ -14,7 +14,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/profile/${user.email}`)
+            fetch(`https://mighty-bayou-71597.herokuapp.com/profile/${user.email}`)
                 .then(res => res.json())
                 .then(data => setProfile(data))
         }
@@ -28,7 +28,7 @@ const MyProfile = () => {
             ...data
         }
         console.log(profile)
-        fetch(`http://localhost:5000/profile/${user.email}`, {
+        fetch(`https://mighty-bayou-71597.herokuapp.com/profile/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

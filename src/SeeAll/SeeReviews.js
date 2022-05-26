@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const SeeReviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://mighty-bayou-71597.herokuapp.com/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
