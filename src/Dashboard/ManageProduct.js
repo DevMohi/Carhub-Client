@@ -30,7 +30,7 @@ const ManageProduct = () => {
         <div>
             <h1>Manage Products : {products.length}</h1>
 
-            <Table className="table w-full">
+            <Table className="table w-full overflow-x-auto">
 
                 <Thead>
                     <Tr>
@@ -51,7 +51,7 @@ const ManageProduct = () => {
                             </div>
                         </div></Th>
                         <Td>{product.name}</Td>
-                        <Td>{product.desc}</Td>
+                        <Td>{product.desc.slice(0, 40).concat("...")}</Td>
                         <Td>{product.minOrder}</Td>
                         <Td>{product.available}</Td>
                         <Td>${product.price}/unit</Td>

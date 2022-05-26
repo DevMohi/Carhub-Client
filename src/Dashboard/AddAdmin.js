@@ -19,29 +19,29 @@ const AddAdmin = () => {
 
     return (
         <div>
-            <h2 className='text-2xl'>All Users: {users.length}</h2>
-      
-                <Table className="table w-full">
-                    <Thead>
-                        <Tr>
-                            <Th></Th>
-                            <Th>Name</Th>
-                            <Th>Role</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        {
-                            users.map((user, index) => <AddAdminRow
-                                key={user._id}
-                                refetch={refetch}
-                                index={index}
-                                user={user}
-                            ></AddAdminRow>)
-                        }
-                    </Tbody>
-                </Table>
-            </div>
-   
+            <h2 className='text-2xl'>All Users: {users?.length}</h2>
+
+            <Table className="table w-full">
+                <Thead>
+                    <Tr>
+                        <Th></Th>
+                        <Th>Name</Th>
+                        <Th>Role</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
+                    {
+                        users.map((user, index) => <AddAdminRow
+                            key={user._id}
+                            refetch={refetch}
+                            index={index}
+                            user={user}
+                        ></AddAdminRow>)
+                    }
+                </Tbody>
+            </Table>
+        </div>
+
     );
 };
 

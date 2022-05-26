@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             <div class="navbar-end">
                 <div className='flex items-center'>
-                    <p className='mr-3 uppercase'>{user.displayName}</p>
+                    <p className='mr-3 uppercase'>{user?.displayName}</p>
                 </div>
                 {user && <span style={{ cursor: 'pointer' }} onClick={handleLogout}><img src={logout} alt="" /></span>}
 
