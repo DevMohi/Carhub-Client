@@ -2,6 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import AddAdminRow from './AddAdminRow';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 const AddAdmin = () => {
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
@@ -18,16 +20,16 @@ const AddAdmin = () => {
     return (
         <div>
             <h2 className='text-2xl'>All Users: {users.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+      
+                <Table className="table w-full">
+                    <Thead>
+                        <Tr>
+                            <Th></Th>
+                            <Th>Name</Th>
+                            <Th>Role</Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
                         {
                             users.map((user, index) => <AddAdminRow
                                 key={user._id}
@@ -36,10 +38,10 @@ const AddAdmin = () => {
                                 user={user}
                             ></AddAdminRow>)
                         }
-                    </tbody>
-                </table>
+                    </Tbody>
+                </Table>
             </div>
-        </div>
+   
     );
 };
 

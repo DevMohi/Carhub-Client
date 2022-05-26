@@ -52,8 +52,8 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='flex justify-center mt-5'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <div className='flex  justify-center mt-5'>
+         <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Add Products</h2>
 

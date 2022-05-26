@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DeleteModal from './DeleteModal';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 const ManageProduct = () => {
     const [products, setProducts] = useState([])
@@ -27,48 +29,48 @@ const ManageProduct = () => {
     return (
         <div>
             <h1>Manage Products : {products.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Desccription</th>
-                            <th>Min Order</th>
-                            <th>Available</th>
-                            <th>Price</th>
-                            <th>Manage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {products.map((product, index) => <tr>
-                            <th><div class="avatar">
-                                <div class="w-12">
-                                    <img src={product.img} />
-                                </div>
-                            </div></th>
-                            <td>{product.name}</td>
-                            <td>{product.desc}</td>
-                            <td>{product.minOrder}</td>
-                            <td>{product.available}</td>
-                            <td>${product.price}/unit</td>
-                            <td>
-                                <label for="deleteParts" onClick={() => setManageId(product._id)} className='btn btn-xs btn-error'>Delete</label>
-                            </td>
-                        </tr>)}
+            <Table className="table w-full">
+
+                <Thead>
+                    <Tr>
+                        <Th></Th>
+                        <Th>Name</Th>
+                        <Th>Desccription</Th>
+                        <Th>Min Order</Th>
+                        <Th>Available</Th>
+                        <Th>Price</Th>
+                        <Th>Manage</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
+                    {products.map((product, index) => <Tr>
+                        <Th><div class="avatar">
+                            <div class="w-12">
+                                <img src={product.img} />
+                            </div>
+                        </div></Th>
+                        <Td>{product.name}</Td>
+                        <Td>{product.desc}</Td>
+                        <Td>{product.minOrder}</Td>
+                        <Td>{product.available}</Td>
+                        <Td>${product.price}/unit</Td>
+                        <Td>
+                            <label for="deleteParts" onClick={() => setManageId(product._id)} className='btn btn-xs btn-error'>Delete</label>
+                        </Td>
+                    </Tr>)}
 
 
-                        {
-                            manageId && <DeleteModal manageId={manageId}
-                                handleDelete={handleDelete}
-                            ></DeleteModal>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                    {
+                        manageId && <DeleteModal manageId={manageId}
+                            handleDelete={handleDelete}
+                        ></DeleteModal>
+                    }
+                </Tbody>
+            </Table>
         </div>
-    );
+
+    )
 };
 
 export default ManageProduct;

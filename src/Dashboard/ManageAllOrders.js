@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([])
@@ -24,51 +26,54 @@ const ManageAllOrders = () => {
     return (
         <div>
             <h1>All orders : {allOrders.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Product</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        {
-                            allOrders.map((order, index) => <>
-                                <tr>
-                                    <th>{index + 1}</th>
-                                    <td>{order.email}</td>
-                                    <td>{order.productName}</td>
-                                    <td>{
+            <Table className="table w-full">
+                <Thead>
+                    <Tr>
+                        <Th></Th>
+                        <Th>Email</Th>
+                        <Th>Product</Th>
+                        <Th>Status</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
 
-                                        (order.shipped) && <button className='btn btn-xs btn-success' onClick={() => handleShipped(order._id)}>Shipped</button>
+                    {
+                        allOrders.map((order, index) => <>
+                            <Tr>
+                                <Th>{index + 1}</Th>
+                                <Td className='text-center'>{order.email}</Td>
+                                <Td className='text-center'>{order.productName}</Td>
+                                <Td className='text-center'>{
 
+                                    (order.shipped) && <button className='btn btn-xs btn-success' onClick={() => handleShipped(order._id)}>Shipped</button>
+
+                                }
+                                    {
+                                        (order.paid && !order.shipped) && <button className='btn btn-xs btn-info'>Pending</button>
                                     }
-                                        {
-                                            (order.paid && !order.shipped) && <button className='btn btn-xs' onClick={() => handleShipped(order._id)}>Pending</button>
-                                        }
+                                    {
 
-                                        {
-                                            !order.paid && <>
-                                                <button className='btn btn-xs mr-3'>Unpaid</button>
-                                                <button className='btn btn-error btn-xs'>Delete</button>
-                                            </>
-                                        }
+                                        (order.paid && !order.shipped) && <button className='btn btn-xs ml-3' onClick={() => handleShipped(order._id)}>Ship</button>
+                                    }
 
-                                    </td>
-                                </tr>
+                                    {
+                                        !order.paid && <>
+                                            <button className='btn btn-xs mr-3'>Unpaid</button>
+                                            <button className='btn btn-error btn-xs'>Delete</button>
+                                        </>
+                                    }
+
+                                </Td>
+                            </Tr>
 
 
 
-                            </>)
-                        }
+                        </>)
+                    }
 
-                    </tbody>
-                </table>
-            </div>
+                </Tbody>
+            </Table>
         </div>
     );
 };

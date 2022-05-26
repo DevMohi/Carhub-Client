@@ -79,13 +79,13 @@ const Purchase = () => {
 
 
     return (
-        <div className='max-w-7xl mx-auto px-8'>
+        <div className='max-w-7xl mx-auto px-8 '>
 
             <h1 className='font-bold'>Order Page</h1>
             <h1 className='font-bold uppercase'>Welcome {user.displayName}</h1>
-            <div className='mt-20 lg:flex lg:justify-evenly justify-center items-center'>
-                <div class="card  bg-base-100 shadow-xl">
-                    <div class="card-body">
+            <div className='mt-20 lg:flex lg:justify-evenly justify-center items-center  '>
+                <div class="card  bg-base-100 shadow-xl ">
+                    <div class="card-body justify-center border items-center">
                         <h2 class="card-title">Your Order:{name}</h2>
                         <p className='font-black'>Price:${price}/unit</p>
                         <p>Total Price:${parseInt(!order ? minOrder : order) * parseInt(price)}</p>
@@ -94,7 +94,7 @@ const Purchase = () => {
                         <p>Ordered:{!order ? minOrder : order}</p>
                         {/* Modal  */}
                         {elementError ? elementError : ''}
-                        <label for="quantity" class="btn modal-button text-xs">Change Quantity</label>
+                        <label for="quantity" class="btn modal-button text-xs md:w-1/2 ">Change Quantity</label>
 
                         <div>
                             <input type="checkbox" id="quantity" class="modal-toggle" />
@@ -118,12 +118,12 @@ const Purchase = () => {
                             </div>
                         </div>
 
+                        <figure className='md: w-1/2'><img src={img} alt={name} /></figure>
                     </div>
-                    <figure><img src={img} alt={name} /></figure>
                 </div>
 
                 {/* Another Section  */}
-                <div className=''>
+                <div className='mt-5 lg:mt-0 border  flex  justify-center'>
                     <div className="card lg:w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
                             <h2 className="text-center text-2xl font-bold">Fill these to Checkout</h2>

@@ -46,7 +46,7 @@ const MyProfile = () => {
     };
 
     return (
-        <div className='flex justify-center '>
+        <div className='flex flex-col lg:flex-row justify-center '>
             <div>
                 <div className='flex justify-center mt-20 mr-2'>
                     <div className='card w-96 bg-base-100 shadow-xl'>
@@ -76,7 +76,7 @@ const MyProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center mt-10'>
+            <div className='flex justify-center lg:mt-10 mt-14'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>

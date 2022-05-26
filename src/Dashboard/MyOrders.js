@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Login/Firebase.init';
 import DeleteOrdersModal from './DeleteOrdersModal';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
@@ -52,69 +54,69 @@ const MyOrders = () => {
     return (
         < div className='' >
             <h1>My Orders: {myOrders.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table lg:w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Name</th>
-                            <th>Ordered</th>
-                            <th>Total Price</th>
-                            <th>Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        {myOrders.map((orders, index) => <tr>
-                            <th>{index + 1}</th>
-                            <td>{orders.email}</td>
-                            <td>{orders.productName}</td>
-                            <td>{orders.totalOrder}</td>
-                            <td>${orders.totalPrice}</td>
-                            <td>
-                                {(orders.totalPrice && !orders.paid) && <>
-                                    <Link to={`/dashboard/payment/${orders._id}`}><button className='btn btn-xs btn-success mr-1'>Pay</button></Link>
+            <Table className="table lg:w-full">
+                <Thead>
+                    <Tr>
+                        <Th></Th>
+                        <Th>Email</Th>
+                        <Th>Name</Th>
+                        <Th>Ordered</Th>
+                        <Th>Total Price</Th>
+                        <Th>Payment</Th>
+                    </Tr>
+                </Thead>
+                <Tbody>
 
-
-                                    <label for="deleteOrder"
-                                        onClick={() => setOrderId(orders._id)}
-                                        className='btn btn-xs btn-error'>Delete</label>
-
-                                </>}
+                    {myOrders.map((orders, index) => <Tr>
+                        <Th>{index + 1}</Th>
+                        <Td>{orders.email}</Td>
+                        <Td>{orders.productName}</Td>
+                        <Td>{orders.totalOrder}</Td>
+                        <Td>${orders.totalPrice}</Td>
+                        <Td>
+                            {(orders.totalPrice && !orders.paid) && <>
+                                <Link to={`/dashboard/payment/${orders._id}`}><button className='btn btn-xs btn-success mr-1'>Pay</button></Link>
 
 
-                                {(orders.totalPrice && orders.paid && !orders.shipped) && <div>
-                                    <span className='btn btn-xs btn-accent mr-1'>Pending</span>
-                                    <p className='text-xs'>Transaction ID : {orders.transactionId}</p>
-                                </div>}
+                                <label for="deleteOrder"
+                                    onClick={() => setOrderId(orders._id)}
+                                    className='btn btn-xs btn-error'>Delete</label>
 
-                                {
-                                    orders.shipped && <div>
-                                        <span className='btn btn-xs 
+                            </>}
+
+
+                            {(orders.totalPrice && orders.paid && !orders.shipped) && <div>
+                                <span className='btn btn-xs btn-accent mr-1'>Pending</span>
+                                <p className='text-xs'>Transaction ID : {orders.transactionId}</p>
+                            </div>}
+
+                            {
+                                orders.shipped && <div>
+                                    <span className='btn btn-xs 
                                         btn-success mr-1'>Shipped</span>
-                                        <p className='text-xs '>Transaction ID : {orders.transactionId}</p>
-                                    </div>
-                                }
+                                    <p className='text-xs '>Transaction ID : {orders.transactionId}</p>
+                                </div>
+                            }
 
 
 
-                            </td>
-                        </tr>)}
+                        </Td>
+                    </Tr>)}
 
 
-                        {
-                            orderId && <DeleteOrdersModal orderId={orderId}
-                                handleDelete={handleDelete}
-                            ></DeleteOrdersModal>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                    {
+                        orderId && <DeleteOrdersModal orderId={orderId}
+                            handleDelete={handleDelete}
+                        ></DeleteOrdersModal>
+                    }
+                </Tbody>
+            </Table>
+        </div>
 
 
 
-        </div >
+
     );
 };
 
