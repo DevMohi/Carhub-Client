@@ -82,7 +82,7 @@ const Portfolio = () => {
                             <h2 class="card-title">LLC Convention Center</h2>
                             <p>If you want to view the project just click on the live link</p>
                             <div class="card-actions justify-end">
-                                <button class="btn btn-secondary text-white"><a href="https://devmohi.github.io/Convention-Centre-Bootstrap/">Live Link</a></button>
+                                <button class="btn btn-secondary text-white"><a href="https://devmohi.github.io/Convention-Centre-Bootstrap/" target='_blank'>Live Link</a></button>
                             </div>
                         </div>
                     </div>
