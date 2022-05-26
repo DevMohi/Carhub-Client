@@ -29,7 +29,7 @@ const AddAdminRow = ({ user, index, refetch }) => {
             <th>{index + 1}</th>
             <td>{email}</td>
             <td>{role !== 'admin' && <button className='btn btn-xs' onClick={makeAdmin}>Make Admin</button>}</td>
-            <td><button className='btn btn-xs'>Remove User</button></td>
+
         </tr >
 
     );

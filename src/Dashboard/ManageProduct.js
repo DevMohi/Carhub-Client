@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import DeleteModal from './DeleteModal';
 
 const ManageProduct = () => {
     const [products, setProducts] = useState([])
+    const [manageId, setManageId] = useState(null)
     useEffect(() => {
         fetch('http://localhost:5000/parts')
             .then(res => res.json())
@@ -19,7 +21,7 @@ const ManageProduct = () => {
             .then(data => {
                 console.log(data)
                 const remaining = products.filter(parts => parts._id !== id)
-                console.log(remaining)
+                setProducts(remaining)
             })
     }
     return (
@@ -52,21 +54,16 @@ const ManageProduct = () => {
                             <td>{product.available}</td>
                             <td>${product.price}/unit</td>
                             <td>
-                                <label for="deleteParts" className='btn btn-xs btn-error'>Delete</label>
-
-                                <input type="checkbox" id="deleteParts" class="modal-toggle" />
-                                <div class="modal">
-                                    <div class="modal-box relative">
-                                        <label for="deleteParts" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h1>Are you sure?</h1>
-                                        <div className='modal-action'>
-                                            <label className='btn btn-error' for='deleteParts' onClick={() => { handleDelete(product._id) }}>Yes</label>
-                                            <label className='btn btn-success' for='deleteParts' >No</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <label for="deleteParts" onClick={() => setManageId(product._id)} className='btn btn-xs btn-error'>Delete</label>
                             </td>
                         </tr>)}
+
+
+                        {
+                            manageId && <DeleteModal manageId={manageId}
+                                handleDelete={handleDelete}
+                            ></DeleteModal>
+                        }
                     </tbody>
                 </table>
             </div>

@@ -33,7 +33,7 @@ const MyOrders = () => {
                     setMyOrders(data)
                 })
         }
-    }, [user])
+    }, [user, myOrders])
 
     const handleDelete = (id) => {
 
@@ -84,10 +84,18 @@ const MyOrders = () => {
                                 </>}
 
 
-                                {(orders.totalPrice && orders.paid) && <div>
-                                    <span className='btn btn-xs btn-outline mr-1'>Paid</span>
+                                {(orders.totalPrice && orders.paid && !orders.shipped) && <div>
+                                    <span className='btn btn-xs btn-accent mr-1'>Pending</span>
                                     <p className='text-xs'>Transaction ID : {orders.transactionId}</p>
                                 </div>}
+
+                                {
+                                    orders.shipped && <div>
+                                        <span className='btn btn-xs 
+                                        btn-success mr-1'>Shipped</span>
+                                        <p className='text-xs '>Transaction ID : {orders.transactionId}</p>
+                                    </div>
+                                }
 
 
 

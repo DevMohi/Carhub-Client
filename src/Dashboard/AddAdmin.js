@@ -25,7 +25,6 @@ const AddAdmin = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Role</th>
-                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>

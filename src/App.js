@@ -22,6 +22,7 @@ import Payment from "./Dashboard/Payment";
 import NotFound from "./Shared/NotFound";
 import Blogs from "./Blogs/Blogs";
 import Portfolio from "./Portfolio/Portfolio";
+import ManageAllOrders from "./Dashboard/ManageAllOrders";
 
 function App() {
   useEffect(() => {
@@ -48,6 +49,7 @@ function App() {
           <Route path='addadmin' element={<RequireAdmin><AddAdmin /></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
+          <Route path='manageallorders' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
