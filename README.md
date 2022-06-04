@@ -41,4 +41,4 @@ Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app/) to
 - React
 - Node JS
 - Heroku
-- Stripe s
+- Stripe 
