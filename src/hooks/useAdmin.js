@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-const useAdmin = user => {
-    const [admin, setAdmin] = useState(false);
-    const [adminLoading, setAdminLoading] = useState(true);
-    useEffect(() => {
-        const email = user?.email
-        if (email) {
-            fetch(`https://mighty-bayou-71597.herokuapp.com/admin/${email}`, {
-                method: 'GET',
-                headers: {
-                    'content-type': 'application/json'
-                },
-            })
-                .then(res => res.json())
-                .then(data => {
-                    setAdmin(data.admin);
-                    setAdminLoading(false)
-                })
+const useAdmin = (user) => {
+  const [admin, setAdmin] = useState(false);
+  const [adminLoading, setAdminLoading] = useState(true);
+  useEffect(() => {
+    const email = user?.email;
+    if (email) {
+      fetch(`https://carhub-server.onrender.com/admin/${email}`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setAdmin(data.admin);
+          setAdminLoading(false);
+        });
+    }
+  }, [user]);
 
-        }
-    }, [user])
-
-    return [admin, adminLoading];
-}
+  return [admin, adminLoading];
+};
 
 export default useAdmin;

@@ -4,7 +4,7 @@ CarHub
 
 ## Project Link
 
-Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app/) to view the live site in your browser.
+Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app) to view the live site in your browser.
 
 - Responsive for both dekstop and mobile , tablet.
 
@@ -41,4 +41,4 @@ Open [https://carhub-assingment.web.app/](https://carhub-assingment.web.app/) to
 - React
 - Node JS
 - Heroku
-- Stripe 
+- Stripe
